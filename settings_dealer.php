@@ -24,7 +24,7 @@ $default['emailAddress'] = 'your@mail.com';
 
 $default['emailSubject'] = "Check integrity at - ". $default['path'];
 
-$default['sendDebugEmail'] = true;
+$default['sendDebugEmail'] = false;
 
 $default['debugEmailAddress'] = 'your@mail.com';
 
