@@ -38,16 +38,23 @@ $time_start = microtime(true);
 //get settings
 
 $settings = parse_ini_file('settings.ini');
-$useRemoteSettings = $settings['useRemoteSettings'];
-
-if ($useRemoteSettings) getRemoteSetting();
-//print_r($settings);
 
 foreach ($settings as $k => $v) {
 
 	$$k = $v;
 
 }
+
+
+if ($useRemoteSettings) $settings = getRemoteSetting();
+
+
+foreach ($settings as $k => $v) {
+
+	$$k = $v;
+
+}
+
 //get checker configurations
 if (!$useRemoteSettings) {
 	$skipExt 			= file (	$skipExtensions 	, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
@@ -78,7 +85,7 @@ $patterns 	= array_filter	( $patterns	, 'removeComments');
 
 //add quarantine extension, skip quarantined files from check
 array_push($skipExt, $extQuarantine);
-print_r($settings);
+
 // ++++++++++++++++++++++++++++++++++++++++
 // start checker
 // ++++++++++++++++++++++++++++++++++++++++
@@ -363,8 +370,6 @@ function sendEmail( $to, $subject, $message ){
 
 function getRemoteSetting() {
 
-	global $settings;
-
     $query = array (
         'ip' => $_SERVER['SERVER_ADDR'],
         'path' => getcwd()
@@ -385,9 +390,7 @@ function getRemoteSetting() {
     // close curl resource to free up system resources
     curl_close($ch);  
 
-    $settings = (array) json_decode($output);
-
-    //print_r ($settings);
+    return (array) json_decode($output);
 
 
 }
