@@ -51,7 +51,7 @@ if ($useRemoteSettings) $settings = getRemoteSettings();
 
 foreach ($settings as $k => $v) {
 
-	if ($v != '') $$k = $v;
+	$$k = $v;
 
 }
 
