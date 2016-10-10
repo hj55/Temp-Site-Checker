@@ -28,7 +28,7 @@ $default['sendDebugEmail'] = true;
 
 $default['debugEmailAddress'] = 'your@mail.com';
 
-$default['setQuarantine'] = true;
+$default['setQuarantine'] = false;
 
 $default['extQuarantine'] = 'quarantine';
 
@@ -37,7 +37,7 @@ $settings = array (
     'default' => $default,
    
 
-    '46.30.244.98' => array (
+    '123.123.123.123' => array (
 
 
         'path-1' => array (
@@ -86,10 +86,9 @@ $settings = array (
 
 
 
-    '185.81.0.71' => array ()
+    '321.321.321.321' => array ()
 );
 
-//if ( 'ev​al(gzinflate(base​64_de​code' === 'ev​al(gzinflate(base​64_de​code') echo "MATCH!!!!\n";
 echo json_encode (array_key_exists($path, $settings[$ip]) ? $settings[$ip][$path] : $settings['default']);
 
 
