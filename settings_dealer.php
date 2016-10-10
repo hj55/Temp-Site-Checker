@@ -77,7 +77,7 @@ $settings = array (
 
             'setQuarantine' => false,
 
-            'extQuarantine' => '.quarantine'
+            'extQuarantine' => 'quarantine'
         ),
 
 
