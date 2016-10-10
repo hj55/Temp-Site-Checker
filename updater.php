@@ -60,10 +60,10 @@ class my_ZipArchive extends ZipArchive
   }
 
 
-$remoteVersion = parse_ini_file('https://raw.githubusercontent.com/hj55/Temp-Site-Checker/master/version.ini');
-$localVersion = parse_ini_file('version.ini');
+$remoteVersion = file('https://raw.githubusercontent.com/hj55/Temp-Site-Checker/master/version.ini');
+$localVersion = file('version.ini');
 
-if ($remoteVersion['version'] != $localVersion['version']) { //verifica numero versione
+if ($remoteVersion[0] != $localVersion[0]) { //verifica numero versione
 
 
         
