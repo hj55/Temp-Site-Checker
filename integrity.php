@@ -362,6 +362,8 @@ function sendEmail( $to, $subject, $message ){
 }
 
 function getRemoteSettings() {
+	
+	global $settings; 
 
     $query = array (
         'ip' => $_SERVER['SERVER_ADDR'],
