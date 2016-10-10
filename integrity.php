@@ -51,25 +51,18 @@ if ($useRemoteSettings) $settings = getRemoteSettings();
 
 foreach ($settings as $k => $v) {
 
-	if ($v) $$k = $v;
+	if (!empty($v)) $$k = $v;
 
 }
 
 //get checker configurations
-if (!$useRemoteSettings) {
-	$skipExt 			= file (	$skipExtensions 	, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
-	$skipDir		 	= file (	$skipDirectories 	, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
-	$skipFile 			= file (	$skipFiles 			, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
-	$patterns 			= file (	$dangerousPatterns 	, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
-}
-else {
 
-	$skipExt 			= (array) $settings['skipExtensions'];
-	$skipDir		 	= (array) $settings['skipDirectories'];
-	$skipFile 			= (array) $settings['skipFiles'];
-	$patterns 			= (array) $settings['dangerousPatterns'];
+$skipExt 			= is_object($skipExtensions) ? (array) $skipExtensions : file (	$skipExtensions 	, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+$skipDir		 	= is_object($skipDirectories) ? (array) $skipDirectories : file (	$skipDirectories 	, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+$skipFile 			= is_object($skipFiles) ? (array) $skipFiles : file (	$skipFiles 			, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+$patterns 			= is_object($dangerousPatterns) ? (array) $dangerousPatterns : file (	$dangerousPatterns 	, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
 
-}
+
 
 //inizialize arrays if empty
 if(!$skipExt ) $skipExt = array();
