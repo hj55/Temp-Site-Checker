@@ -46,7 +46,7 @@ foreach ($settings as $k => $v) {
 }
 
 
-if ($useRemoteSettings) $settings = getRemoteSetting();
+if ($useRemoteSettings) $settings = getRemoteSettings();
 
 
 foreach ($settings as $k => $v) {
@@ -368,7 +368,7 @@ function sendEmail( $to, $subject, $message ){
 	return;
 }
 
-function getRemoteSetting() {
+function getRemoteSettings() {
 
     $query = array (
         'ip' => $_SERVER['SERVER_ADDR'],
