@@ -75,7 +75,7 @@ $settings = array (
 
             'debugEmailAddress' => '',
 
-            'setQuarantine' => true,
+            'setQuarantine' => false,
 
             'extQuarantine' => '.quarantine'
         ),
