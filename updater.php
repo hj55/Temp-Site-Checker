@@ -81,7 +81,13 @@ if ($remoteVersion['version'] != $localVersion['version']) { //verifica numero v
     {
     $errors = $zip->extractSubdirTo($path, "neting-sitechecker-master/");
     $zip->close();
+      
+    //delete temp file
     unlink($file);
+      
+    //delete settings_dealer.php that is not supposed to be here
+    unlink('settings_dealer.php');
+      
     echo 'ok, errors: ' . count($errors);
     }
     else
