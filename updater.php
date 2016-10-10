@@ -79,7 +79,7 @@ if ($remoteVersion['version'] != $localVersion['version']) { //verifica numero v
 
     if ($zip->open($file) === TRUE)
     {
-    $errors = $zip->extractSubdirTo($path, "neting-sitechecker-master/");
+    $errors = $zip->extractSubdirTo($path, "Temp-Site-Checker-master/");
     $zip->close();
       
     //delete temp file
