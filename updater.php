@@ -60,7 +60,7 @@ class my_ZipArchive extends ZipArchive
   }
 
 
-$remoteVersion = parse_ini_file('https://raw.githubusercontent.com/mingusthecat/neting-sitechecker/master/version.ini');
+$remoteVersion = parse_ini_file('https://raw.githubusercontent.com/hj55/Temp-Site-Checker/master/version.ini');
 $localVersion = parse_ini_file('version.ini');
 
 if ($remoteVersion['version'] != $localVersion['version']) { //verifica numero versione
@@ -69,7 +69,7 @@ if ($remoteVersion['version'] != $localVersion['version']) { //verifica numero v
         
     $file = 'temp.zip';
 
-    $fileToDownload = 'https://github.com/mingusthecat/neting-sitechecker/archive/master.zip';
+    $fileToDownload = 'https://github.com/hj55/Temp-Site-Checker/archive/master.zip';
 
     file_put_contents($file, file_get_contents($fileToDownload));
 
